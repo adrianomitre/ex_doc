@@ -38,7 +38,12 @@ jobs:
 
   build_docs:
     name: "Build docs"
+    runs-on: ubuntu-latest
     steps:
+    - uses: actions/setup-elixir@v1.3.0
+      with:
+        otp-version: 23.0.2
+        elixir-version: 1.10.3
     - run: mix docs
     - run: test -f doc/index.html && echo "doc/index.html exists."
     - run: test -f doc/ex_doc.epub && echo "doc/ex_doc.epub exists."
