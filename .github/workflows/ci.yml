@@ -47,13 +47,6 @@ jobs:
     steps:
       - run: mix format --check-formatted
 
-    - stage: check js
-      script:
-        - nvm install $NODE_VERSION
-        - npm install --prefix assets
-        - npm run --prefix assets lint
-        - npm run --prefix assets test
-
   check_js:
     name: npm test
     runs-on: ubuntu-latest
