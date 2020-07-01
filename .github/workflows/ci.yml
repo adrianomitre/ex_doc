@@ -95,7 +95,7 @@ jobs:
       - run: sudo apt-get install xvfb
       - name: npm install, build, and test
         run: |
-          xvfb-run --auto-servernum npm test
+          xvfb-run --auto-servernum npm run --prefix assets test
         env:
           CI: true
 
