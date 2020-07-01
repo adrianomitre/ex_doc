@@ -45,7 +45,7 @@ jobs:
  
   check_formatted:
     steps:
-      - run: script: mix format --check-formatted
+      - run: mix format --check-formatted
 
     - stage: check js
       script:
