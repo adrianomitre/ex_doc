@@ -52,24 +52,6 @@ jobs:
           mix deps.get
       - run: mix compile --warnings-as-errors
 
-  static_analysis:
-    name: Static analysis (credo)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2.3.1
-      - uses: actions/setup-elixir@v1.3.0
-        with:
-          otp-version: 23.0.2
-          elixir-version: 1.10.3
-      - name: Install Dependencies
-        run: |
-          mix local.rebar --force
-          mix local.hex --force
-          mix deps.get
-      - run: mix archive.install hex credo --force
-      - run: mix archive.install hex bunt --force
-      - run: mix credo
-   
   build_docs:
     name: Build docs
     runs-on: ubuntu-latest
