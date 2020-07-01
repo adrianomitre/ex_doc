@@ -94,7 +94,8 @@ jobs:
       - run: sudo apt update
       - run: sudo apt -y install xorg xvfb gtk2-engines-pixbuf dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
       - run: sudo systemctl start xvfb
-      - run: npm run --prefix assets test
-        env:
-          DISPLAY: ":99.0"
-          CI: "true"
+      - name: Run headless test
+        uses: GabrielBB/xvfb-action@v1.2
+        with:
+          working-directory: ./ #optional
+          run: npm run --prefix assets test
