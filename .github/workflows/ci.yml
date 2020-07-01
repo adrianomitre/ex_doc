@@ -52,7 +52,7 @@ jobs:
           mix deps.get
       - name: Upload project files and dependencies
         uses: actions/upload-artifact@v2.0.1
-          with:
+        with:
           name: project-files-and-dependencies
           path: ${{ github.workspace }}
 
