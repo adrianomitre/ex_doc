@@ -91,7 +91,9 @@ jobs:
           node-version: 10.10.0
       - run: npm install --prefix assets
       - run: npm run --prefix assets lint
-      - run: apt -y install xorg xvfb gtk2-engines-pixbuf install dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
+      - run: sudo apt update
+      - run: sudo apt -y install xorg xvfb gtk2-engines-pixbuf install dbus-x11 xfonts-base xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-scalable
       - run: npm run --prefix assets test
         env:
-          CI: true
+          DISPLAY: ":99.0"
+          CI: "true"
